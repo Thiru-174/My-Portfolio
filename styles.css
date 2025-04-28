@@ -472,34 +472,39 @@
   
   /* Optional: style the new heading for Coding Skills */
   .skills-subtitle {
+    color: #333;
     font-weight: 600;
-    color: var(--primary-color);
     text-align: left;
-  }
+    border-bottom: 2px solid #ff6f61;
+    padding-bottom: 10px;}
   
   .skills-content {
-    max-width: 800px;
+    max-width: 1200px;
     margin: 0 auto;
   }
-  
   .skills-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 20px;
-    text-align: center;
-  }
+    padding: 20px 0;
+}
   
-  .skill-item {
-    background-color: var(--card-bg);
-    padding: 20px;
-    border-radius: var(--border-radius);
-    box-shadow: var(--shadow);
-    transition: var(--transition);
-  }
+.skill-item {
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 15px;
+  text-align: center;
+  font-size: 16px;
+  font-weight: 500;
+  color: #333;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
   
-  .skill-item:hover {
-    transform: translateY(-5px);
-  }
+.skill-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
   
   .skill-icon {
     font-size: 30px;
@@ -1361,3 +1366,124 @@
   }
 }
 
+/* Awards Section */
+.awards-section {
+  background-image: url('https://acm.kct.ac.in/assets/kct_about.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  position: relative;
+  padding: 80px 0;
+}
+
+.awards-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Overlay for readability */
+  z-index: 1;
+}
+
+.awards-section .container {
+  position: relative;
+  z-index: 2;
+}
+
+.awards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  margin-top: 20px;
+}
+
+.award-card {
+  background-color: #fff;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  transition: var(--transition);
+}
+
+.award-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.award-image {
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+}
+
+.award-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-bottom: 3px solid var(--primary-color);
+}
+
+.award-details {
+  padding: 20px;
+}
+
+.award-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--primary-color);
+  margin-bottom: 10px;
+}
+
+.award-details p {
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--text-color);
+  margin: 0;
+}
+
+/* Dark mode override for award card text */
+.dark-mode .award-details p,
+.dark-mode .award-title {
+  color: #000 !important;
+}
+
+/* Responsive Adjustments for Awards Section */
+@media (max-width: 768px) {
+  .awards-grid {
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+  }
+
+  .award-image {
+      height: 180px;
+  }
+
+  .award-title {
+      font-size: 16px;
+  }
+
+  .award-details p {
+      font-size: 13px;
+  }
+}
+
+@media (max-width: 480px) {
+  .awards-grid {
+      grid-template-columns: 1fr;
+      gap: 15px;
+  }
+
+  .award-image {
+      height: 160px;
+  }
+
+  .award-title {
+      font-size: 15px;
+  }
+
+  .award-details p {
+      font-size: 12px;
+  }
+}
